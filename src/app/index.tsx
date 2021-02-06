@@ -15,24 +15,26 @@ import { GlobalStyle } from 'styles/global-styles';
 import { HomePage } from './pages/HomePage/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import { ProductsList } from './pages/ProductsList/Loadable';
 
-export function App() {
+export const App = () => {
   const { i18n } = useTranslation();
   return (
     <BrowserRouter>
       <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
+        titleTemplate="Virtual Stores"
+        defaultTitle="Virtual Stores"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="A React Boilerplate application" />
+        <meta name="description" content="Ecommerce App" />
       </Helmet>
 
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/products" component={ProductsList} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
     </BrowserRouter>
   );
-}
+};

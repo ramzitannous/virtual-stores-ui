@@ -14,7 +14,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 
 interface Props {
-  appName: string;
+  appName?: string;
 }
 
 export const Header = ({ appName }: Props) => {
@@ -25,7 +25,7 @@ export const Header = ({ appName }: Props) => {
           <MenuIcon />
         </IconButton>
         <Typography color="inherit" variant="h6">
-          {appName}
+          {appName || process.env.REACT_APP_NAME}
         </Typography>
       </Toolbar>
     </AppBar>
