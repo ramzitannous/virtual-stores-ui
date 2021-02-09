@@ -19,7 +19,7 @@ interface Props {
 }
 
 const CardMediaInfo = styled(CardMedia)`
-  height: 140px;
+  height: 250px;
 `;
 
 const ItemWrapper = styled(Grid)`
@@ -29,7 +29,7 @@ const ItemWrapper = styled(Grid)`
 export const ProductItem = memo(
   ({ product }: Props) => {
     return (
-      <ItemWrapper item={true} xs={3} md={2}>
+      <ItemWrapper item={true} lg={3} sm={12} xs={12}>
         <Card>
           <CardMediaInfo image={product.images[0].image.productLarge} />
           <CardContent>
