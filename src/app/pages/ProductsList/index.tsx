@@ -4,7 +4,6 @@
  *
  */
 import * as React from 'react';
-import { LoadingContainer } from '../../components/LoadingContainer';
 import { useProducts } from './hooks';
 import { Grid } from '@material-ui/core';
 import { ProductItem } from './ProductItem';
@@ -12,6 +11,8 @@ import styled from 'styled-components';
 import { Header } from '../../components/Header';
 import { useState } from 'react';
 import { ListPagination } from '../../components/ListPagination';
+import { Skeleton } from '@material-ui/lab';
+import { times } from 'lodash';
 
 interface Props {}
 
@@ -25,6 +26,16 @@ const GridList = styled(Grid)`
   padding: 16px;
 `;
 
+const SkeletonWrapper = styled(Grid)`
+  padding: 8px;
+`;
+
+const LoadingSkeletonItem = () => (
+  <SkeletonWrapper item={true} lg={3} sm={12} xs={12}>
+    <Skeleton variant="rect" height={250} />
+  </SkeletonWrapper>
+);
+
 export const ProductsList = (props: Props) => {
   const [page, setPage] = useState(1);
   const { data, isLoading } = useProducts(page);
@@ -33,15 +44,15 @@ export const ProductsList = (props: Props) => {
   return (
     <Container>
       <Header />
-      <LoadingContainer loading={isLoading}>
-        {!isLoading && (
-          <GridList container={true} justify={'center'}>
-            {products.map(product => (
+      <GridList container={true} justify={'center'}>
+        {isLoading
+          ? times(process.env.REACT_APP_PAGE_SIZE, () => (
+              <LoadingSkeletonItem />
+            ))
+          : products.map(product => (
               <ProductItem key={product.id} product={product} />
             ))}
-          </GridList>
-        )}
-      </LoadingContainer>
+      </GridList>
       {count > 0 && (
         <ListPagination
           currentPage={page}
