@@ -13,6 +13,8 @@ import { useState } from 'react';
 import { ListPagination } from '../../components/ListPagination';
 import { Skeleton } from '@material-ui/lab';
 import { times } from 'lodash';
+import { useHistory } from 'react-router';
+import { Product } from '../../../api/types/product';
 
 interface Props {}
 
@@ -36,21 +38,30 @@ const LoadingSkeletonItem = () => (
   </SkeletonWrapper>
 );
 
-export const ProductsList = (props: Props) => {
+export const ProductsList = () => {
   const [page, setPage] = useState(1);
   const { data, isLoading } = useProducts(page);
   const { results: products, count } = data;
+  const history = useHistory();
+
+  const onProductClicked = (product: Product) => {
+    history.push(`/products/${product.id}`);
+  };
 
   return (
     <Container>
       <Header />
       <GridList container={true} justify={'center'}>
         {isLoading
-          ? times(process.env.REACT_APP_PAGE_SIZE, () => (
-              <LoadingSkeletonItem />
+          ? times(process.env.REACT_APP_PAGE_SIZE, i => (
+              <LoadingSkeletonItem key={i} />
             ))
           : products.map(product => (
-              <ProductItem key={product.id} product={product} />
+              <ProductItem
+                key={product.id}
+                product={product}
+                onClick={() => onProductClicked(product)}
+              />
             ))}
       </GridList>
       {count > 0 && (

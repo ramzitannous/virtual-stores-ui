@@ -1,12 +1,5 @@
-export interface ImageSizes {
-  productLarge: string;
-  productMedium: string;
-  productSmall: string;
-}
-export interface ProductImage {
-  id: string;
-  image: ImageSizes;
-}
+import { Image } from './image';
+import { Category } from './category';
 
 export interface Store {
   id: string;
@@ -16,10 +9,10 @@ export interface Store {
 export interface Product {
   id: string;
   name: string;
-  category: string;
-  colors: string;
-  sizes: string;
-  images: ProductImage[];
+  category: Category;
+  colors: string[];
+  sizes: string[];
+  images: Image[];
   reviewsCount: number;
   reviewsAvg: number;
   description: string;
@@ -27,4 +20,5 @@ export interface Product {
   quantity: number;
   isActive: boolean;
   onDiscount: boolean;
+  store: Store;
 }
