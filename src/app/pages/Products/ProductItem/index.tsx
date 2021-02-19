@@ -13,9 +13,11 @@ import {
   Typography,
 } from '@material-ui/core';
 import styled from 'styled-components';
+import { StarRating } from '../../../components/StarRating';
 
 interface Props {
   product: Product;
+  onClick: () => void;
 }
 
 const CardMediaInfo = styled(CardMedia)`
@@ -27,14 +29,19 @@ const ItemWrapper = styled(Grid)`
 `;
 
 export const ProductItem = memo(
-  ({ product }: Props) => {
+  ({ product, onClick }: Props) => {
     return (
-      <ItemWrapper item={true} lg={3} sm={12} xs={12}>
+      <ItemWrapper item={true} lg={3} sm={12} xs={12} onClick={onClick}>
         <Card>
           <CardMediaInfo image={product.images[0].image.productLarge} />
           <CardContent>
             <Typography variant={'h6'}>{product.name}</Typography>
-            <Typography variant={'caption'}>{product.description}</Typography>
+            <Typography variant={'caption'}>by {product.store.name}</Typography>
+            <StarRating
+              rating={product.reviewsAvg}
+              ratersCount={product.reviewsCount}
+            />
+            <Typography variant={'body1'}>${product.price}</Typography>
           </CardContent>
         </Card>
       </ItemWrapper>

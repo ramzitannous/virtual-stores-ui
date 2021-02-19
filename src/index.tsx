@@ -11,6 +11,8 @@ import 'react-app-polyfill/stable';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 // Use consistent styling
 import 'sanitize.css/sanitize.css';
@@ -29,6 +31,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import './locales/i18n';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from './store/cache';
+import { lightTheme } from './styles/theme';
 
 const store = configureAppStore();
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
@@ -36,11 +39,15 @@ const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>
     <Provider store={store}>
-      <HelmetProvider>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      </HelmetProvider>
+      <MuiThemeProvider theme={lightTheme}>
+        <StyledThemeProvider theme={lightTheme}>
+          <HelmetProvider>
+            <React.StrictMode>
+              <App />
+            </React.StrictMode>
+          </HelmetProvider>
+        </StyledThemeProvider>
+      </MuiThemeProvider>
     </Provider>
     <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>,
