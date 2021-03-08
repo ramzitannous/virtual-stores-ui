@@ -20,6 +20,7 @@ const Container = styled.div`
   grid-column-gap: 20px;
   height: 100%;
   grid-template-columns: minmax(100px, 350px);
+  justify-content: center;
 
   @media only screen and (min-width: ${sizes.large}px) {
     grid-template-columns: minmax(110px, 200px) minmax(100px, 350px);

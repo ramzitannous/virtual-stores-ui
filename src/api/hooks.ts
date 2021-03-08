@@ -34,7 +34,7 @@ const initialData: PaginatedResponse<any> = {
 };
 
 export const useAPIPaginatedQuery = <T>(
-  key: string,
+  key: any,
   page: number,
   url: string,
 ): AppQueryResult<PaginatedResponse<T>> => {
