@@ -15,7 +15,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import StoreIcon from '@material-ui/icons/Store';
 import LocalGroceryStoreIcon from '@material-ui/icons/LocalGroceryStore';
 import { LoadingContainer } from '../../../components/LoadingContainer';
-import { media, sizes } from '../../../../styles/media';
+import { sizes } from '../../../../styles/media';
+import { ProductReviews } from './ProductReviews';
 
 interface Props {}
 
@@ -47,6 +48,7 @@ const InfoWrapper = styled.div`
   grid-area: info;
   display: grid;
   grid-row-gap: 6px;
+  justify-content: center;
 `;
 
 const Color = styled.div`
@@ -147,6 +149,7 @@ export const ProductDetails = (props: Props) => {
             <ImageGallery images={product?.images || []} />
           </ImageWrapper>
         </DetailsWrapper>
+        <ProductReviews productId={id} />
       </LoadingContainer>
     </Container>
   );
