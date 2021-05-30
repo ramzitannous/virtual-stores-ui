@@ -25,4 +25,4 @@ _An initial startup idea that allow showcasing products, modern_ (WIP)
 <img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/example-images/3.png" width="800" height="400"/>
 
 Responsive
-<img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/example-images/1.png" width="800" height="400"/>
+<img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/example-images/4.png" width="800" height="400"/>
