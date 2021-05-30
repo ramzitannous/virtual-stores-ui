@@ -16,13 +16,13 @@ _An initial startup idea that allow showcasing products, modern_ (WIP)
 
 1. Products List
 
-<img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/images/1.png" width="800" height="400"/>
+<img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/example-images/1.png" width="800" height="400"/>
 
 2. Product Details
 
-<img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/images/2.png" width="800" height="400"/>
+<img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/example-images/2.png" width="800" height="400"/>
 
-<img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/images/3.png" width="800" height="400"/>
+<img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/example-images/3.png" width="800" height="400"/>
 
 Responsive
-<img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/images/1.png" width="800" height="400"/>
+<img src="https://raw.githubusercontent.com/ramzitannous/virtual-stores-ui/master/example-images/1.png" width="800" height="400"/>
