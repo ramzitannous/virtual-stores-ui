@@ -1,6 +1,6 @@
 **Virtual Store Web App**
 
-_An initial project idea that allow showcasing products (WIP)
+An initial project idea that allow showcasing products (WIP)
 
 **Third Party Packages**
 
